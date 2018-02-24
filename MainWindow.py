@@ -2,7 +2,20 @@ from tkinter import *  # Import all packages from tkinter
 
 rootWindow = Tk()  # Creates a blank window
 
-titleLabel = Label(rootWindow, text="Lab practicum application.")  # Creates a label with specified text
-titleLabel.pack()  # Set the label's initial position at first place, when it can be set
+topFrame = Frame(rootWindow)  # Basic layout that goes to the main root window
+topFrame.pack()
+
+bottomFrame = Frame(rootWindow)
+bottomFrame.pack(side=BOTTOM)
+
+submitButton = Button(bottomFrame, text="Прийняти", fg="green")  # Creates a red button with Submit text
+declineButton = Button(bottomFrame, text="Відмінити", fg="red")  # Blue button
+
+startButton = Button(topFrame, text="Розпочати", fg="blue")
+
+declineButton.pack(side=LEFT)
+submitButton.pack(side=LEFT)
+
+startButton.pack()
 
 rootWindow.mainloop()  # Infinite loop for UI
