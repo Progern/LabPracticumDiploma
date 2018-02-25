@@ -1,21 +1,30 @@
 from tkinter import *  # Import all packages from tkinter
 
 rootWindow = Tk()  # Creates a blank window
+rootWindow.title("Лабораторний практикум")
 
-topFrame = Frame(rootWindow)  # Basic layout that goes to the main root window
-topFrame.pack()
 
-bottomFrame = Frame(rootWindow)
-bottomFrame.pack(side=BOTTOM)
+def create_widgets():
+    label_user_name = Label(rootWindow, text="Введіть ваше ім'я")
+    label_invalid_user_name = Label(rootWindow, text="Ім'я повинно бути довшим за 5 символів", fg="red")
 
-submitButton = Button(bottomFrame, text="Прийняти", fg="green")  # Creates a red button with Submit text
-declineButton = Button(bottomFrame, text="Відмінити", fg="red")  # Blue button
+    input_field_user_name = Entry(rootWindow)  # Creates a text input field
 
-startButton = Button(topFrame, text="Розпочати", fg="blue")
+    confirmation_button = Button(rootWindow, text="Підтвердити")
+    pack_widgets(label_user_name, input_field_user_name, confirmation_button)
 
-declineButton.pack(side=LEFT)
-submitButton.pack(side=LEFT)
 
-startButton.pack()
+def pack_widgets(label_user_name, input_field_user_name, confirmation_button):
+    label_user_name.grid(row=0)
 
-rootWindow.mainloop()  # Infinite loop for UI
+    input_field_user_name.grid(row=2)
+
+    confirmation_button.grid(row=3)
+
+    rootWindow.mainloop()  # Infinite loop for UI
+
+
+create_widgets()
+
+
+
