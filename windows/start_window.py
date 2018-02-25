@@ -1,6 +1,7 @@
 from tkinter import *  # Import all packages from tkinter
 
 from utils.login_utils import check_name_valid
+from windows import main_app_window
 
 rootWindow = Tk()  # Creates a blank window
 rootWindow.title("Лабораторний практикум")
@@ -38,6 +39,8 @@ def pack_widgets(label_user_name, input_field_user_name, confirmation_button, st
 def perform_login(name, label_invalid_user_name):
     if check_name_valid(name):
         label_invalid_user_name.grid_forget()
+        rootWindow.destroy()
+        main_app_window._init_()
         return
 
     label_invalid_user_name.grid(row=1, column=0)
