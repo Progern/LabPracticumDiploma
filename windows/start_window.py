@@ -1,21 +1,25 @@
 from tkinter import *  # Import all packages from tkinter
-from utils import *
+
+from utils.login_utils import check_name_valid
 
 rootWindow = Tk()  # Creates a blank window
 rootWindow.title("Лабораторний практикум")
 
+rootFrame = Frame(rootWindow, width=500, height=200)
+rootFrame.pack()
+
 
 def create_widgets():
-    label_user_name = Label(rootWindow, text="Введіть ваше ім'я")
-    label_invalid_user_name = Label(rootWindow, text="Ім'я повинно бути довшим за 5 символів", fg="red")
+    label_user_name = Label(rootFrame, text="Введіть ваше ім'я")
+    label_invalid_user_name = Label(rootFrame, text="Ім'я повинно бути довшим за 5 символів", fg="red")
 
-    input_field_user_name = Entry(rootWindow)
+    input_field_user_name = Entry(rootFrame)
 
-    confirmation_button = Button(rootWindow, text="Підтвердити",
+    confirmation_button = Button(rootFrame, text="Підтвердити",
                                  command=lambda: perform_login(input_field_user_name.get(),
                                                                label_invalid_user_name))
 
-    statistics_check_box = Checkbutton(rootWindow, text="Зберігати статистику?")
+    statistics_check_box = Checkbutton(rootFrame, text="Зберігати статистику?")
     pack_widgets(label_user_name, input_field_user_name, confirmation_button, statistics_check_box)
 
 
